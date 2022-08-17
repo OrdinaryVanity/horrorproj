@@ -1,0 +1,129 @@
+#library "health"
+#include "zcommon.acs"
+
+//generator stuff
+int gotgas, gotfuse = 0;
+int powgood = 0;
+
+Script "Health GUI" Enter
+{
+  while(TRUE)
+  {
+    int health = GetActorProperty(0, APROP_Health);
+
+    if(health >= 75)
+    {
+      TakeInventory("HealthBar0", 1);
+	  TakeInventory("HealthBar10", 1);
+	  TakeInventory("HealthBar30", 1);
+	  TakeInventory("HealthBar40", 1);
+	  TakeInventory("HealthBar50", 1);
+	  TakeInventory("HealthBar75", 1);
+      GiveInventory("HealthBar100", 1);
+    }
+	else if(health > 55)
+    {
+      TakeInventory("HealthBar0", 1);
+	  TakeInventory("HealthBar10", 1);
+	  TakeInventory("HealthBar30", 1);
+	  TakeInventory("HealthBar40", 1);
+	  TakeInventory("HealthBar50", 1);
+      TakeInventory("HealthBar100", 1);
+	  GiveInventory("HealthBar75", 1);
+	}
+	
+    else if(health > 50)
+    {
+      TakeInventory("HealthBar0", 1);
+	  TakeInventory("HealthBar10", 1);
+	  TakeInventory("HealthBar30", 1);
+	  TakeInventory("HealthBar40", 1);
+	  TakeInventory("HealthBar50", 1);
+      TakeInventory("HealthBar100", 1);
+	  GiveInventory("HealthBar75", 1);
+	  SetFont("BLDVIG01");
+	  SetHUDSize(460, 480, FALSE);
+	  HudMessage(s:"A"; HUDMSG_FADEOUT | HUDMSG_ALPHA, 1, 0, 230.0, 240.0, 0.0, 0.5, 0.3);
+    }
+    else if(health > 40)
+    {
+      TakeInventory("HealthBar0", 1);
+	  TakeInventory("HealthBar10", 1);
+	  TakeInventory("HealthBar30", 1);
+	  TakeInventory("HealthBar40", 1);
+	  TakeInventory("HealthBar75", 1);
+      TakeInventory("HealthBar100", 1);
+	  GiveInventory("HealthBar50", 1);
+	  SetFont("BLDVIG02");
+	  SetHUDSize(460, 480, FALSE);
+	  HudMessage(s:"A"; HUDMSG_FADEOUT | HUDMSG_ALPHA, 1, 0, 230.0, 240.0, 0.0, 0.5, 0.3);
+    }
+	else if(health > 30)
+    {
+      TakeInventory("HealthBar0", 1);
+	  TakeInventory("HealthBar10", 1);
+	  TakeInventory("HealthBar30", 1);
+	  TakeInventory("HealthBar50", 1);
+	  TakeInventory("HealthBar75", 1);
+      TakeInventory("HealthBar100", 1);
+	  GiveInventory("HealthBar40", 1);
+	  SetFont("BLDVIG03");
+	  SetHUDSize(460, 480, FALSE);
+	  HudMessage(s:"A"; HUDMSG_FADEOUT | HUDMSG_ALPHA, 1, 0, 230.0, 240.0, 0.0, 0.5, 0.4);
+    }
+	else if(health > 10)
+    {
+      TakeInventory("HealthBar0", 1);
+	  TakeInventory("HealthBar10", 1);
+	  TakeInventory("HealthBar50", 1);
+	  TakeInventory("HealthBar40", 1);
+	  TakeInventory("HealthBar75", 1);
+      TakeInventory("HealthBar100", 1);
+	  GiveInventory("HealthBar30", 1);
+	  SetFont("BLDVIG04");
+	  SetHUDSize(460, 480, FALSE);
+	  HudMessage(s:"A"; HUDMSG_FADEOUT | HUDMSG_ALPHA, 1, 0, 230.0, 240.0, 0.0, 0.5, 0.5);
+    }
+	else if(health > 0)
+    {
+      TakeInventory("HealthBar0", 1);
+	  TakeInventory("HealthBar50", 1);
+	  TakeInventory("HealthBar30", 1);
+	  TakeInventory("HealthBar40", 1);
+	  TakeInventory("HealthBar75", 1);
+      TakeInventory("HealthBar100", 1);
+	  GiveInventory("HealthBar10", 1);
+	  SetFont("BLDVIG05");
+	  SetHUDSize(460, 480, FALSE);
+	  HudMessage(s:"A"; HUDMSG_FADEOUT | HUDMSG_ALPHA, 1, 0, 230.0, 240.0, 0.0, 0.5, 0.6);
+    }
+	else
+    {
+      TakeInventory("HealthBar10", 1);
+	  TakeInventory("HealthBar50", 1);
+	  TakeInventory("HealthBar30", 1);
+	  TakeInventory("HealthBar40", 1);
+	  TakeInventory("HealthBar75", 1);
+      TakeInventory("HealthBar100", 1);
+	  GiveInventory("HealthBarGone", 1);
+    }
+
+    Delay(1);
+  }
+}
+
+Script "Armor GUI" ENTER
+{
+	while(TRUE)
+	{
+		if(CheckInventory("BasicArmor") >= 1)
+		{
+			GiveInventory("GotArmor", 1);
+		}
+		else
+		{
+			TakeInventory("GotArmor", 1);
+		}
+	Delay(1);
+	}
+}

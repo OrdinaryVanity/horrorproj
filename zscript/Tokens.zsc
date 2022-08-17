@@ -1,0 +1,107 @@
+//Health Bar
+Class HealthBar100 : Inventory 
+{
+	Default {}
+}
+
+Class HealthBar75 : Inventory 
+{
+	Default {}
+}
+
+Class HealthBar50 : Inventory
+{
+	Default {}
+}
+
+Class HealthBar40 : Inventory
+{
+	Default {}
+}
+
+Class HealthBar30 : Inventory
+{
+	Default {}
+}
+
+Class HealthBar10 : Inventory
+{
+	Default {}
+}
+
+Class HealthBarGone : Inventory
+{
+	Default {}
+}
+
+//Misc Weapon/Armor Checks
+
+Class BM9SteadyUp : Inventory 
+{ 
+	Default
+	{	
+		Inventory.MaxAmount 1; 
+	}
+}
+
+Class SprintActive : Inventory 
+{ 
+	Default
+	{
+		Inventory.MaxAmount 1; 
+	}
+}
+
+Class GotArmor : Inventory 
+{ 
+	Default
+	{
+		Inventory.MaxAmount 2; 
+	}
+}
+
+Class FistStamina : Counter 
+{ 
+	Default
+	{
+		Inventory.MaxAmount 100; 
+	}
+}
+
+Class ChargeUp : Counter 
+{ 
+	Default
+	{
+		Inventory.MaxAmount 1; 
+	}
+}
+
+Class ChargeUpReady : Counter 
+{ 
+	Default
+	{
+		Inventory.MaxAmount 1; 
+	}
+}
+
+//In-Game Token For Cutscenes
+Class InGame : Boolean
+{
+	Default {}
+}
+
+//Global Game Checks
+Class GotFuel : Boolean
+{
+	Default {}
+}
+
+Class GotFuse : Boolean
+{
+	Default {}
+}
+
+Class PowerGood : Boolean
+{
+	Default {}
+}

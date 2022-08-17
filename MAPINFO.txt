@@ -1,0 +1,36 @@
+DoomEdNums
+{
+	//Model Actors
+	1000 = "Rail1"
+	1001 = "Couch1"
+	1002 = "Stand1"
+	1003 = "CFan1"
+	1004 = "ETable1"
+	1005 = "Knife1"
+	1006 = "Light1"
+	1007 = "FLight"
+	1008 = "HBed1"
+	1009 = "Pipe1"
+	1010 = "WChair1"
+	1011 = "Ladder1"
+	1012 = "Sconce1"
+	1013 = "Generator1"
+	1014 = "Wrench1"
+	
+	//Props
+	
+	12000 = "RainSpawner"
+	12001 = "Note1"
+	
+	//Weapons
+	
+	20001 = "MyFist"
+}
+
+GameInfo
+{
+PlayerClasses = "NewPlayer"
+AddEventHandlers = "VignetteShaderHandler"
+
+//StatusBarClass = "MyHUD"
+}

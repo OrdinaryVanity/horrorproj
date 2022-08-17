@@ -1,0 +1,26 @@
+sprite RAL1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite CCH1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite STD1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite CFN1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite CFN2A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite ETB1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite KFE1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite LGH1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite FSH1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite HBD1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite PIP1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite WCH1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite LAD1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite SCO1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite GEN1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite WRE1A0, 1, 1 { Patch TNT1A0, 0, 0 }
+sprite CHAMA0, 1, 1 { Patch TNT1A0, 0, 0 }
+
+texture NOT1A0, 48, 72
+{
+   Patch BDOOR5, 0, 0 //first, the base texture
+   Patch NOTEA0, 18, 24
+   {
+   }
+}
+

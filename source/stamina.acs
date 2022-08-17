@@ -1,0 +1,85 @@
+#library "stamina"
+#include "zcommon.acs"
+#include "functions.acs"
+
+Script "Stamina" ENTER //Handle movement speed by stamina value
+{
+	int pln = PlayerNumber();
+	while(TRUE)
+	{
+		int stamina = CheckInventory("FistStamina");
+		
+		if(stamina >= 75)
+		{
+			SetActorProperty(pln, APROP_SPEED, 1.0);
+		}
+		else if(stamina >= 50)
+		{
+			SetActorProperty(pln, APROP_SPEED, 0.90);
+		}
+		else if(stamina >= 25)
+		{
+			SetActorProperty(pln, APROP_SPEED, 0.80);
+		}
+		else
+		{
+			SetActorProperty(pln, APROP_SPEED, 0.55);
+		}
+		
+	Delay(1);
+	}
+}
+
+Script "Sprinting" ENTER //Handle stamina regen
+{
+
+	//define some ints to track button pressing and old and new player coordinates
+	int buttons;
+	int x;
+    int y;
+    int xb;
+    int yb;
+	
+	while(TRUE)
+	{
+		buttons = GetPlayerInput(-1, INPUT_BUTTONS);
+		xb = x;
+		yb = y;
+		x = GetActorX(0);
+		y = GetActorY(0);
+		
+		//are we pressing forward and run AND moving?
+		if ((buttons & (BT_SPEED | BT_FORWARD)) == (BT_SPEED | BT_FORWARD) && (xb != x) && (yb != y))
+		{
+			
+			GiveInventory("SprintActive", 1); //We are sprinting baby!
+			
+			//while sprinting, stamina regen is slower
+			if(CheckInventory("SprintActive") > 0) 
+			{
+				GiveInventory("FistStamina", 1);
+				Delay(12);
+			}
+			
+			//regen stamina even if we are moving but NOT sprinting
+			else
+			{
+				TakeInventory("SprintActive", 1);
+				GiveInventory("FistStamina", 1);
+				Delay(2);
+			}
+		}	
+		
+		//regen stamina while we are not sprinting
+		else
+		{
+			TakeInventory("SprintActive", 1);
+			GiveInventory("FistStamina", 1);
+			Delay(2);
+		}
+	
+	Delay(2);
+	if (isDead(0)) { terminate; } //Don't regen stamina if we're dead
+    Delay(1);
+	}
+}

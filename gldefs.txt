@@ -1,0 +1,7 @@
+HardwareShader PostProcess scene
+{
+	Name "vignetteshader"
+	Shader "shaders/PostProcess/Vignette.fp" 330
+	Uniform float intensity
+	Uniform float falloff
+}

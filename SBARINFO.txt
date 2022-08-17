@@ -1,0 +1,82 @@
+Resolution 640,480;
+monospacefonts true, "0";
+CompleteBorder True;
+
+StatusBar Normal, forcescaled, 1.0
+{
+
+	InInventory InGame, 1 //Draw HUD if we're not in a cutscene.
+	{
+	
+		//First, draw black bar and stamina bar
+		DrawImage "SBar2", 15, 449; //Black bar
+		DrawBar "STAMINAF", "STAMINAE", FistStamina, horizontal, interpolate (5), 25, 443; //Stamina bar
+		DrawNumber 3, SMALLFONT, White, Health, drawshadow (2,1), 58, 451; //Health counter
+		
+		//Armor - Only draw if you have armor.
+		
+		InInventory GotArmor, 1
+		{
+			DrawImage "Armor", 68, 449; //Armor icon
+			DrawNumber 3, SMALLFONT, White, Armor, drawshadow (2,1), 102, 451;
+		}
+		
+		//Draw an animated heart depending on amount of health.
+		InInventory HealthBar100, 1
+		{
+			DrawImage "Health1", 15, 432; //Heartbeat
+		}
+		
+		InInventory HealthBar75, 1
+		{
+			DrawImage "Health1B", 15, 432; //Heartbeat
+		}
+		
+		InInventory HealthBar50, 1
+		{
+			DrawImage "Health1C", 15, 432; //Heartbeat
+		}
+		
+		InInventory HealthBar40, 1
+		{
+			DrawImage "Health1D", 15, 432; //Heartbeat
+		}
+		
+		InInventory HealthBar30, 1
+		{
+			DrawImage "Health1E", 15, 432; //Heartbeat
+		}
+		
+		InInventory HealthBar10, 1
+		{
+			DrawImage "Health1F", 15, 432; //Red Wizard is about to die
+		}
+		
+		InInventory HealthBarGone, 1
+		{
+			DrawImage "Gone", 15, 432; //Heartbeat Gone
+		}
+
+		//Ammo
+		DrawImage "SBar1", 500, 449; //Black bar
+		DrawImage ammoicon1, 603, 438; //Ammo sprite
+		DrawNumber 3, SMALLFONT, white, ammo1 , drawshadow (2,1), 570, 451; //Draw number of bullets
+		DrawNumber 3, SMALLFONT, white, ammo2 , drawshadow (2,1), whennotzero, 600, 451; //Reserve ammo
+		
+		IsSelected "BerettaM9" //Beretta equipped
+		{
+			InInventory "BM9Ammo", 1 //Do we have at least 1 bullet?
+			{
+				DrawString SMALLFONT, WHITE, "/", 579, 452, 0, drawshadow (2,1); //Draw ammo divider if so.
+			}
+		}
+
+		IsSelected "BenelliM3S" //Benelli equipped
+		{
+			InInventory "ShotShell", 1 //Do we have at least 1 bullet?
+			{
+				DrawString SMALLFONT, WHITE, "/", 579, 452, 0, drawshadow (2,1); //Draw ammo divider if so.
+			}
+		}
+	} //End InGame block.
+} //End Statusbar block.

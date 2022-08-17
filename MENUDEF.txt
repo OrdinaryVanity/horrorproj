@@ -1,0 +1,54 @@
+OptionValue LocationOptions {
+
+	0, "Helmet"
+    1, "Right Shoulder"
+    2, "Left Shoulder"
+    3, "Center View"
+
+}
+
+
+OptionMenu "Flashlight"
+{
+    Title "Flashlight"
+    
+    StaticText " "
+    
+    //ColorPicker "Color", "flashlight_color"
+    
+    StaticText " "
+    
+    //Slider "Intensity ('Range')", "flashlight_intensity", 0, 1024, 1, 0
+    
+    StaticText " "
+    
+    //Slider "Inner Angle", "flashlight_inner", 0, 120, 1, 0
+    
+    //Slider "Outer Angle", "flashlight_outer", 0, 180, 1, 0
+    
+    Option "Location", flashlight_location, LocationOptions
+
+}
+
+AddOptionMenu "OptionsMenu" {
+    
+    StaticText " "
+    
+    Submenu "Flashlight", "Flashlight"
+
+}
+
+AddOptionMenu "OptionsMenu"
+{
+	StaticText ""
+	Submenu "Vignette Shader Options", "VignetteShaderOptions"
+}
+
+OptionMenu "VignetteShaderOptions"
+{
+	Position -15
+	Title "Vignette Shader Options"
+	Option "Enabled", "cl_vignette", "YesNo"
+	Slider "Intensity", "cl_vignette_intensity", 0, 500, 0.005, 3
+	Slider "Falloff", "cl_vignette_falloff", 0, 10, 0.005, 3
+}

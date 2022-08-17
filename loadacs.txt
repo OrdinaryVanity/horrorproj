@@ -1,0 +1,4 @@
+nashmove
+flashlight
+health
+stamina

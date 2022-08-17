@@ -1,0 +1,41 @@
+//Wood Doors
+:SeqSwingDoorOpen
+   play DOOR1
+   play fistpunch2
+   stopsound nosound
+   door 1
+end
+
+:SeqSwingDoorClose
+   play nosound
+   stopsound DOOR2
+   door 1
+end
+
+[SeqSwingDoor
+   Door 1
+   0 SeqSwingDoorOpen
+   1 SeqSwingDoorClose
+   2 SeqSwingDoorOpen
+   3 SeqSwingDoorClose
+]
+
+:SeqSwingDoorOpen2
+   play DOOR3
+   stopsound nosound
+   door 2
+end
+
+:SeqSwingDoorClose2
+   play nosound
+   stopsound DOOR4
+   door 2
+end
+
+[SeqSwingDoor2
+   Door 2
+   0 SeqSwingDoorOpen2
+   1 SeqSwingDoorClose2
+   2 SeqSwingDoorOpen2
+   3 SeqSwingDoorClose2
+]

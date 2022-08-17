@@ -1,0 +1,33 @@
+version "4.8.0"//"4.2.4"
+
+#include "zscript/vignette.zsc"
+#include "zscript/flashlight.zsc"
+#include "zscript/RadiusDebug/RadiusDebug.zc"
+#include "zscript/Classes.zsc"
+#include "zscript/Models.zsc"
+#include "zscript/Monsters.zsc"
+#include "zscript/NashMove.zsc"
+#include "zscript/Props.zsc"
+#include "zscript/Tokens.zsc"
+#include "zscript/Weapons.zsc"
+
+
+Class Boolean : Inventory
+{
+	Default
+	{
+		Inventory.MaxAmount 1;
+		+Inventory.UNDROPPABLE;
+		-Inventory.INVBAR;
+	}
+}
+
+Class Counter : Inventory
+{
+	Default
+	{
+		Inventory.MaxAmount 0x7FFFFFFF;
+		+Inventory.UNDROPPABLE;
+		-Inventory.INVBAR;
+	}
+}

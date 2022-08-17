@@ -1,0 +1,95 @@
+//player sounds
+$random pl_pain { player/pain player/pain2 player/pain3 player/pain4 }
+player/pain PAIN1
+player/pain2 PAIN2
+player/pain3 PAIN3
+player/pain4 PAIN4
+$playeralias	player	male	*pain100	pl_pain
+$playeralias	player	male	*pain75		pl_pain
+$playeralias	player	male	*pain50		pl_pain
+$playeralias	player	male	*pain25		pl_pain
+
+$random pl_death { player/death player/death2 player/death3 player/death4 }
+player/death DEATH1
+player/death2 DEATH2
+player/death3 DEATH3
+player/death4 DEATH4
+player/death5 DEATH5
+$playeralias	player	male	*death	pl_death
+
+//fist sounds
+
+$random fistpunch { PUNCH1 PUNCH2 }
+PUNCH1	PUNCH1
+PUNCH2	PUNCH2
+
+$random fistpunch2 { PUNCH1 QUIET }
+PUNCH1	PUNCH1
+QUIET	QUIET
+
+//beretta sounds
+BERETTAC BERETTAC
+DRYFIRE DRYFIRE
+BRTASHOT BRTASHOT
+BSHOTB BSHOTB
+BSHOTC BSHOTC
+BEJECT BEJECT
+BINSERT BINSERT
+BEQUIP BEQUIP
+BUNEQUIP BUNEQUIP
+
+$RANDOM BERRSHOT { BSHOTB BSHOTC }
+
+//9mm shell sound
+$RANDOM 9MMSH { SHELL_1 SHELL_2 SHELL_3 }
+
+SHELL_1 SHELL_1
+SHELL_2 SHELL_2
+SHELL_3 SHELL_3
+
+//benellim3s sounds
+INSERT INSERT
+SGSHOT1 SGSHOT1
+SGSHELL SGSHELL
+COCK COCK
+UNCOCK UNCOCK
+DRYFIRE DRYFIRE
+SGPUMP SGPUMP
+
+//benelli shell sounds
+$RANDOM 12GSH { SLDRP SLDRP2 }
+SLDRP SLDRP
+SLDRP2 SLDRP2
+
+//floor sounds
+floor/carpet FSTEP1
+floor/wood FSTEP2
+//floor/dirt FSTEP3
+
+//flashlight sound for Steve's Flashlight Mod
+CLICK CLICK
+
+//others
+LGTON LGTON
+LGTON2 LGTON2
+LGTOFF LGTOFF
+SCARE1 SCARE1
+DOOR1 DOOR1
+DOOR2 DOOR2
+DOOR3 DOOR3
+DOOR4 DOOR4
+DOOR5 DOOR5
+DOOR6 DOOR6
+PANIC PANIC
+
+//water drip
+$RANDOM WDRIP { DRIP1 DRIP2 DRIP3 }
+DRIP1 DRIP1
+DRIP2 DRIP2
+DRIP3 DRIP3
+
+//ambient sounds
+$ambient 1 STATIC POINT CONTINUOUS 1
+STATIC STATIC
+$ambient 2 BARRELF POINT 1.0 CONTINUOUS 1
+BARRELF BARRELF

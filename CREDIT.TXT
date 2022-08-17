@@ -1,0 +1,104 @@
+-----------Models------------
+Beretta M9 - https://www.turbosquid.com/3d-models/black-beretta-m9-pistol-obj/701154
+		   - made by statyk
+
+Benelli M3S - https://www.turbosquid.com/3d-models/free-x-model-gun-pumpgun/1091858
+			- made by AndrijaAlp
+			
+Claw Hammer - https://www.turbosquid.com/FullPreview/Index.cfm/ID/438843
+			- Made by kStuen
+---------------------------------				
+				
+-------------Sounds--------------
+Footstep and door sounds - Silent Hill 2 by Konami and Team Silent
+Gun sounds - Resident Evil 3: Nemesis by Capcom (STARRRRRRS)
+Ambient sounds - Freesound.org
+---------------------------------
+				
+------------Shaders--------------
+Vignette Shader - Nash Muhandes
+---------------------------------
+
+--------FX and code help---------
+Wildweasel - GunLabz tutorials for pretty much every bit of code here, and
+  			 for sprites from WW-Diaz to help figure out dimensions, as well
+		     as code for spawning smoke FX and general weapon responsiveness.
+
+BigProjectAlone - Code for showing how to do shell casing ejections, random 
+				  sound definitions in SNDINFO, 9mm shell casing sprite borrowed.
+
+BlueShadow - Help with CustomInventory for the Benelli.
+
+Agent Ash aka Jekyll Grim Payne - For showing me how to do charge up animations and helping with weapon feeling.
+	
+---------------------------------
+
+------------Textures-------------
+License - 
+
+Terms of Use
+All images are taken by my own cameras and edited by me.
+
+They are free for commercial and non-commercial use with the only limitation: you are not allowed to sell or distribute original or slightly modified images alone or in packs. You can only distribute them as an integral part of your product.
+
+Credit texturelib.com if it is possible.
+
+Texture library © 2018 Dmitriy Chugai 
+admin@texturelib.com
+
+texturelib.com - grey rusting door
+			   - rustic metal door
+---------------------------------
+
+--------------Fonts--------------
+BagheadSpidey - ZDoom Font Generator is a fucking awesome tool.
+Silent Hill 1 font prepared by Dr_Cosmobyte
+---------------------------------
+
+------Steve's Flashlight Mod-----
+This mod uses the new spotlight actors in GZDoom.
+
+Requirements:
+
+    Needs a release from at least 2018-02-10.
+
+Setup:
+
+    Assign a key to toggle the flashlight in your controls menu right at the bottom of "customise controls".
+    Under options, you can select Flashlight and customise it. Options take affect next time it switches on.
+
+
+Known Issues:
+
+    There is some jitter in the changing of location and orientation of the spotlight. Using the target pointer of lights doesn't solve the jitter and is not suitable anyway as the light should emit from the actor's "shoulder". I'm not sure this will ever be fixed or can even be fixed given the way ZDoom updates actors. You can stop it right now by turning off rendering interpolation off but then you only get 35 FPS. Suggestions very welcome.
+    
+    
+License:
+
+Unlicense. (That means do what you want. No credit needed.)
+	
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org/>
+---------------------------------

@@ -1,0 +1,3 @@
+STARTUPSONG = "NOMUSIK"
+IWAD = "Pistol.pk3"
+

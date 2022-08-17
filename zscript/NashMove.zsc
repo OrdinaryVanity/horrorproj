@@ -1,0 +1,25 @@
+// checks for collision against ground and other solid actors
+Class Nash_FloorCheck : Actor
+{
+	Default
+	{
+		Radius 16;
+		Height 4;
+		+SOLID;
+	}
+	
+	States
+	{
+		Spawn:
+			TNT1 A 1;
+			Stop;
+	}
+}
+
+//Actor Nash_Player : DoomPlayer
+//{
+	// the player's movement will be perceived as slower, so you'll have to
+	// tweak the movement speeds here
+	//Player.ForwardMove 2.0
+	//Player.SideMove 1.0
+//}

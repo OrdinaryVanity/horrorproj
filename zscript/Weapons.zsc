@@ -1,0 +1,342 @@
+Class MyFist : Weapon
+{
+	Default
+	{	
+		Weapon.SelectionOrder 3700;
+		Weapon.Kickback 100;
+		AttackSound "fistpunch";
+		Obituary "$OB_MPFIST";
+		Tag "$TAG_FIST";
+		DamageType "Hammer";
+		+WEAPON.MELEEWEAPON;
+		+WEAPON.NOALERT;
+	}
+	
+	States
+	{
+		Ready:
+			//UNRM ABCDEFGHIJKLMN 1 A_WeaponReady
+			//UNLM ABCDEFGHIJKLMN 1 A_WeaponReady
+			//TNT1 A 1
+			//TNT1 A 0 A_GiveInventory("FistStamina", 1)
+			IDLE A 1 A_WeaponReady;
+			Loop;
+			
+		Deselect:
+			IDLE A 1 A_Lower;
+			Loop;
+		
+		Select:
+			IDLE A 1 A_Raise;
+			Loop;
+		
+		Fire:
+			TNT1 A 0;
+			TNT1 A 0 A_JumpIfInventory("FistStamina", 25, "FastFire");
+			UNLM A 0 A_TakeInventory("FistStamina", random(1,4));
+			UNLM B 1 ;
+			UNLM D 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNLM C 1;
+			UNLM D 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNLM D 1;
+			UNLM E 1;
+			UNLM D 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNLM F 1;
+			UNLM D 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNLM G 1 A_Quake(1,1,0,1);
+			UNLM H 5 A_CustomPunch(random(1,4), TRUE, CPF_PULLIN, "BulletPuff", 64.0);
+			UNLM IJ 3;
+			UNLM D 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNLM K 3;
+			UNLM D 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNLM L 3;
+			UNLM D 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNLM M 3;
+			UNLM D 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNLM N 3;
+			IDLE A 6 A_WeaponReady(WRF_NOSWITCH);
+			Goto Ready;
+		
+		FastFire:
+			UNLM A 0 A_TakeInventory("FistStamina", random(4,8));
+			UNLM B 0;
+			UNLM C 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNLM C 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNLM C 0;
+			UNLM D 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNLM D 0;
+			UNLM E 0;
+			UNLM E 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNLM E 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNLM F 0;
+			UNLM F 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNLM F 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNLM G 1 A_Quake(2,2,0,1);
+			UNLM H 2 A_CustomPunch(random(4,9) * 2, TRUE, CPF_PULLIN, "BulletPuff", 64.0);
+			UNLM H 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNLM H 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNLM I 1 A_WeaponReady(WRF_NOPRIMARY | WRF_NOSWITCH);
+			UNLM JK 1 A_WeaponReady(WRF_NOPRIMARY | WRF_NOSWITCH);
+			UNLM K 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNLM K 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNLM L 1 A_Refire("PreHold");
+			UNLM L 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNLM L 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNLM M 1;
+			UNLM M 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNLM M 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNLM N 1;
+			IDLE A 6 A_WeaponReady(WRF_NOSWITCH);
+			Goto Ready;
+			
+		AltFire:
+			TNT1 A 0;
+			TNT1 A 0 A_JumpIfInventory("FistStamina", 25, "AltFastFire");
+			UNRM A 0 A_TakeInventory("FistStamina", random(3,8));
+			UNRM B 1;
+			UNRM B 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM B 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM C 1;
+			UNRM C 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM C 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM D 1;
+			UNRM D 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM D 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM E 1;
+			UNRM E 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM E 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM F 1;
+			UNRM F 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM F 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM G 1 A_Quake(2,2,0,1);
+			UNRM H 5 A_CustomPunch(random(2,6), TRUE, CPF_PULLIN, "BulletPuff", 64.0);
+			UNRM H 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM H 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNRM IJK 3 A_WeaponReady(WRF_NOSECONDARY | WRF_NOSWITCH);
+			UNRM L 3 A_Refire("AltPreHold");
+			UNRM L 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM L 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNRM M 3;
+			UNRM M 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM M 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNRM N 3;
+			UNRM N 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM N 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNRM O 3;
+			UNRM O 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM O 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			IDLE A 6 A_WeaponReady(WRF_NOSWITCH);
+			Goto Ready;
+			
+		AltFastFire:
+			UNRM A 0 A_TakeInventory("FistStamina", random(8,12));
+			UNRM B 0;
+			UNRM B 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM B 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM C 0;
+			UNRM C 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM C 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM D 0;
+			UNRM D 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM D 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM E 0;
+			UNRM E 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM E 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM F 0;
+			UNRM F 0 A_SetAngle(angle + 0.5, SPF_INTERPOLATE);
+			UNRM F 0 A_SetPitch(pitch + 0.5, SPF_INTERPOLATE);
+			UNRM G 0 A_Quake(6,4,0,1);
+			UNRM H 3 A_CustomPunch(random(6,10) * 2, TRUE, CPF_PULLIN, "BulletPuff", 64.0);
+			UNRM H 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM H 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNRM I 1;
+			UNRM JK 1;
+			UNRM L 2;
+			UNRM L 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM L 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNRM M 2 A_WeaponReady(WRF_NOSECONDARY | WRF_NOSWITCH);
+			UNRM M 1;
+			UNRM M 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM M 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNRM N 2;
+			UNRM N 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM N 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			UNRM O 2;
+			UNRM O 0 A_SetAngle(angle - 0.5, SPF_INTERPOLATE);
+			UNRM O 0 A_SetPitch(pitch - 0.5, SPF_INTERPOLATE);
+			IDLE A 1 A_Refire("AltPreHold");
+			IDLE A 6 A_WeaponReady;
+			Goto Ready;
+		
+		PreHold:
+			IDLE A 6;
+			IDLE A 1 A_WeaponOffset(-1.0,40.0);
+			IDLE A 0 A_ZoomFactor(0.99);
+			IDLE A 1 A_WeaponOffset(-2.0,41.0);
+			IDLE A 0 A_ZoomFactor(0.98);
+			IDLE A 1 A_WeaponOffset(-3.0,42.0);
+			IDLE A 0 A_ZoomFactor(0.97);
+			IDLE A 1 A_WeaponOffset(-4.0,43.0);
+			IDLE A 0 A_ZoomFactor(0.96);
+			IDLE A 1 A_WeaponOffset(-5.0,44.0);
+			IDLE A 0 A_ZoomFactor(0.95);
+			IDLE A 1 A_WeaponOffset(-6.0,45.0);
+			IDLE A 0 A_ZoomFactor(0.94);
+			IDLE A 1 A_WeaponOffset(-7.0,46.0);
+			IDLE A 0 A_ZoomFactor(0.93);
+			IDLE A 1 A_WeaponOffset(-8.0,47.0);
+			IDLE A 0 A_ZoomFactor(0.92);
+			IDLE A 1 A_WeaponOffset(-9.0,48.0);
+			IDLE A 0 A_ZoomFactor(0.91);
+			IDLE A 1 A_WeaponOffset(-10.0,49.0);
+			IDLE A 0 A_ZoomFactor(0.90);
+			IDLE A 1 A_WeaponOffset(-11.0,50.0);
+		Hold:
+			IDLE A 1 A_WeaponOffset(-12.0,50.0);
+			IDLE A 1 A_WeaponReady(WRF_NOSECONDARY | WRF_NOSWITCH);
+			IDLE A 1 A_Refire;
+		HoldFinish:
+			UNLM A 0 A_TakeInventory("FistStamina", random(10,22));
+			UNLM A 0 A_ZoomFactor(1.0, ZOOM_INSTANT);
+			UNRM A 0 A_FireProjectile("Alert", 0, 0, 0, 0);
+			UNLM A 0 A_StartSound("player/pain3", 0, 1.0, FALSE, ATTN_NONE);
+			UNLM B 0;
+			UNLM C 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNLM C 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNLM C 0;
+			UNLM D 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNLM D 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNLM D 0;
+			UNLM E 0;
+			UNLM E 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNLM E 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNLM F 0;
+			UNLM F 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNLM F 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNLM G 0 A_Quake(7,4,0,1);
+			UNLM H 2 A_CustomPunch(random(8,14) * 2, TRUE, CPF_PULLIN, "BulletPuff", 96.0);
+			UNLM H 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNLM H 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNLM I 1;
+			UNLM J 1;
+			UNLM J 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNLM J 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNLM K 1;
+			UNLM K 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNLM K 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNLM L 1;
+			UNLM L 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNLM L 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNLM M 1;
+			UNLM M 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNLM M 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNLM N 1;
+			UNLM N 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNLM N 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			IDLE A 6 A_WeaponReady(WRF_NOPRIMARY | WRF_NOSWITCH);
+			Goto Ready;
+			
+		AltPreHold:
+			IDLE A 6;
+			IDLE A 1 A_WeaponOffset(1.0,40.0);
+			IDLE A 0 A_ZoomFactor(0.99);
+			IDLE A 1 A_WeaponOffset(2.0,41.0);
+			IDLE A 0 A_ZoomFactor(0.98);
+			IDLE A 1 A_WeaponOffset(3.0,42.0);
+			IDLE A 0 A_ZoomFactor(0.97);
+			IDLE A 1 A_WeaponOffset(4.0,43.0);
+			IDLE A 0 A_ZoomFactor(0.96);
+			IDLE A 1 A_WeaponOffset(5.0,44.0);
+			IDLE A 0 A_ZoomFactor(0.95);
+			IDLE A 1 A_WeaponOffset(6.0,45.0);
+			IDLE A 0 A_ZoomFactor(0.94);
+			IDLE A 1 A_WeaponOffset(7.0,46.0);
+			IDLE A 0 A_ZoomFactor(0.93);
+			IDLE A 1 A_WeaponOffset(8.0,47.0);
+			IDLE A 0 A_ZoomFactor(0.92);
+			IDLE A 1 A_WeaponOffset(9.0,48.0);
+			IDLE A 0 A_ZoomFactor(0.91);
+			IDLE A 1 A_WeaponOffset(10.0,49.0);
+			IDLE A 0 A_ZoomFactor(0.90);
+			IDLE A 1 A_WeaponOffset(11.0,50.0);
+		AltHold:
+			IDLE A 1 A_WeaponOffset(12.0,50.0);
+			//IDLE A 1 A_Refire("AltHold");
+			IDLE A 1 A_WeaponReady(WRF_NOPRIMARY | WRF_NOSWITCH);
+		AltHoldFinish:
+			UNRM A 0 A_TakeInventory("FistStamina", random(12,26));
+			UNRM A 0 A_ZoomFactor(1.0, ZOOM_INSTANT);
+			UNRM A 0 A_FireProjectile("Alert", 0, 0, 0, 0);
+			UNRM A 0 A_StartSound("player/pain3", 0, 1.0, FALSE, ATTN_NONE);
+			UNRM B 0;
+			UNRM B 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNRM B 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNRM C 0;
+			UNRM C 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNRM C 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNRM D 0;
+			UNRM D 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNRM D 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNRM E 0;
+			UNRM E 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNRM E 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNRM F 0;
+			UNRM F 0 A_SetAngle(angle + 1.0, SPF_INTERPOLATE);
+			UNRM F 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE);
+			UNRM G 0 A_Quake(7,4,0,1);
+			UNRM H 2 A_CustomPunch(random(9,16) * 2, TRUE, CPF_PULLIN, "BulletPuff", 96.0);
+			UNRM H 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNRM H 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNRM IJ 1;
+			UNRM J 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNRM J 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNRM K 1;
+			UNRM K 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNRM K 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNRM L 1;
+			UNRM L 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNRM L 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNRM M 1;
+			UNRM M 0 A_SetAngle(angle - 1.0, SPF_INTERPOLATE);
+			UNRM M 0 A_SetPitch(pitch - 1.0, SPF_INTERPOLATE);
+			UNRM N 1;
+			IDLE A 1 A_Refire("AltPreHold");
+			IDLE A 6 A_WeaponReady(WRF_NOSECONDARY | WRF_NOSWITCH);
+			Goto Ready;
+	}
+}
+
+Class Alert : Actor
+{
+	Default
+	{
+		Height 1;
+		Radius 1;
+		Speed 255;
+		Damage 0;
+		ExplosionRadius 0;
+		ExplosionDamage 0;
+		PROJECTILE;
+	}
+	
+	States
+	{
+		Spawn:
+			TNT1 A 0;
+			TNT1 A 0 A_AlertMonsters;
+			Goto Death;
+   
+		Death:
+			TNT1 A 0;
+			Stop;
+	}
+}

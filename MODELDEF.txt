@@ -1,0 +1,206 @@
+Model Rail1
+{
+
+Path "Models/Rail1"
+Model 0 "Rail1.md3"
+scale 10.0 10.0 10.0
+frameindex RAL1 A 0 0
+
+}
+
+Model Knife1
+{
+
+Path "Models/Knife1"
+Model 0 "Knife1.md3"
+scale 1.0 1.0 1.0
+frameindex KFE1 A 0 0
+
+}
+
+Model FLight
+{
+
+Path "Models/FLight"
+Model 0 "FLight.md3"
+scale 0.3 0.3 0.3
+frameindex FSH1 A 0 0
+
+}
+
+Model Light1
+{
+
+Path "Models/Light1"
+Model 0 "Light1.md3"
+scale 1.0 1.0 1.0
+frameindex LGH1 A 0 0
+
+}
+
+Model Couch1
+{
+
+Path "Models/Couch1"
+Model 0 "Couch1.md3"
+scale 1 1 1
+frameindex CCH1 A 0 0
+
+}
+
+Model Stand1
+{
+
+Path "Models/Stand"
+Model 0 "Stand1.md3"
+scale 1 1 1
+frameindex STD1 A 0 0
+
+}
+
+Model CFan1
+{
+Path "Models/CFan1"
+Model 0 "CFan1.md3"
+Scale 1 1 1
+FrameIndex CFN1 A 0 1
+FrameIndex CFN1 B 0 2
+FrameIndex CFN1 C 0 3
+FrameIndex CFN1 D 0 4
+FrameIndex CFN1 E 0 5
+FrameIndex CFN1 F 0 6
+FrameIndex CFN1 G 0 7
+FrameIndex CFN1 H 0 8
+FrameIndex CFN1 I 0 9
+FrameIndex CFN1 J 0 10
+FrameIndex CFN1 K 0 11
+FrameIndex CFN1 L 0 12
+FrameIndex CFN1 M 0 13
+FrameIndex CFN1 N 0 14
+FrameIndex CFN1 O 0 15
+FrameIndex CFN1 P 0 16
+FrameIndex CFN1 Q 0 17
+FrameIndex CFN1 R 0 18
+FrameIndex CFN1 S 0 19
+FrameIndex CFN1 T 0 20
+FrameIndex CFN1 U 0 21
+FrameIndex CFN1 V 0 22
+FrameIndex CFN1 W 0 23
+FrameIndex CFN1 X 0 24
+FrameIndex CFN1 Y 0 25
+FrameIndex CFN1 Z 0 26
+FrameIndex CFN2 A 0 27
+FrameIndex CFN2 B 0 28
+FrameIndex CFN2 C 0 29
+FrameIndex CFN2 D 0 30
+FrameIndex CFN2 E 0 31
+FrameIndex CFN2 F 0 32
+FrameIndex CFN2 G 0 33
+FrameIndex CFN2 H 0 34
+FrameIndex CFN2 I 0 35
+FrameIndex CFN2 J 0 36
+FrameIndex CFN2 K 0 37
+FrameIndex CFN2 L 0 38
+FrameIndex CFN2 M 0 39
+FrameIndex CFN2 N 0 40
+}
+
+Model ETable1
+{
+
+Path "Models/ETable1"
+Model 0 "ETable1.md3"
+scale 1 1 1
+frameindex ETB1 A 0 0
+
+}
+
+Model HBed1
+{
+
+Path "Models/HBed"
+Model 0 "HBed.md3"
+scale 1 1 1
+frameindex HBD1 A 0 0
+
+}
+
+Model Pipe1
+{
+
+Path "Models/Pipe1"
+Model 0 "Pipe1.md3"
+scale 1 1 1
+frameindex PIP1 A 0 0
+
+}
+
+Model WChair1
+{
+
+Path "Models/WChair1"
+Model 0 "WChair1.md3"
+SurfaceSkin 0 0 "Skins/Wheel6.png"
+SurfaceSkin 0 1 "Skins/Wheel2.png"
+SurfaceSkin 0 2 "Skins/Wheel5.png"
+SurfaceSkin 0 3 "Skins/Wheel4.png"
+SurfaceSkin 0 4 "Skins/Wheel3.png"
+SurfaceSkin 0 5 "Skins/Wheel1.png"
+scale 1 1 1
+frameindex WCH1 A 0 0
+
+}
+
+Model Ladder1
+{
+
+Path "Models/Ladder1"
+Model 0 "LADDER1.md3"
+scale 3 3 3
+frameindex LAD1 A 0 0
+
+}
+
+Model Sconce1
+{
+
+Path "Models/Sconce1"
+Model 0 "Sconce1.md3"
+scale 3 3 3
+angleoffset 90
+frameindex SCO1 A 0 0
+
+}
+
+Model Generator1
+{
+
+Path "Models/Generator1"
+Model 0 "Generator1.md3"
+scale 1 1 1
+angleoffset 90
+frameindex GEN1 A 0 0
+
+}
+
+Model Wrench1
+{
+
+Path "Models/Wrench1"
+Model 0 "Wrench1.md3"
+scale 1 1 1
+angleoffset 90
+frameindex WRE1 A 0 0
+
+}
+
+Model Hammer
+{
+
+Path "Models/Clawhammer"
+Model 0 "clawhammer.md3"
+scale 4 4 4
+angleoffset 90
+frameindex CHAM A 0 0
+
+}

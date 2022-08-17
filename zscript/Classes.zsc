@@ -1,0 +1,33 @@
+Class NewPlayer : DoomPlayer
+{
+
+	Default
+	{
+		Speed 0.50;
+		Health 100;
+		Radius 16;
+		Mass 100;
+		Height 56;
+		PainChance 255;
+		PainSound "pl_pain";
+		Player.RunHealth 15;
+		// Player.AttackZOffset 35
+		Player.ViewBob 0.5;
+		Player.JumpZ 10.0;
+		// Player.ViewHeight 75
+		//Player.StartItem "BerettaM9"
+		Player.StartItem "MyFist";
+		//Player.StartItem "Hammer";
+		Player.StartItem "FistStamina", 100;
+		Player.StartItem "InGame";
+		//Player.StartItem "BM9Clip", 15;
+		// Player.StartItem "BM9Ammo", 45
+		Player.SoundClass "DoomPlayer";
+		Player.WeaponSlot 1, "MyFist", "Hammer";
+		Player.WeaponSlot 2, "BerettaM9";
+		Player.WeaponSlot 3, "BenelliM3S";
+		Player.WeaponSlot 3, "SuperShotgun";
+		Player.ForwardMove 1.25;
+		Player.SideMove 1.50;
+	}
+}
