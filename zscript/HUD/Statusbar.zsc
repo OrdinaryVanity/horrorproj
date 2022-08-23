@@ -71,15 +71,11 @@ class REHUD : BaseStatusBar
 		else
 			return;
 			
-		if(GetArmorAmount() > 0)
+		let armor = CPlayer.mo.FindInventory("BasicArmor");
+		if(armor != null && armor.Amount > 0)
 		{
 			DrawImage("Armor", (115, 500), 0, 1.0, (-1,-1), (1,1));
 			DrawString(mIndexFont, FormatNumber(GetArmorAmount(), 3), (124,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Armor counter
-		}
-		
-		else
-		{
-			return;
 		}
 		
 		//Draw Ammo
@@ -88,9 +84,18 @@ class REHUD : BaseStatusBar
 		[primammo, secammo, priammocount, secammocount] = GetCurrentAmmo();
 		
 		DrawImage("SBar1", (835, 500), 0, 1.0, (-1,-1), (1,1));
-		DrawInventoryIcon(primammo, (880, 500));
-		DrawString(mIndexFont, FormatNumber(priammocount, 2), (866,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Primary ammo counter
-		DrawString(mIndexFont, FormatNumber(secammocount, 3), (886,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Secondary ammo counter
+		DrawInventoryIcon(primammo, (880, 499));
+		DrawString(mIndexFont, FormatNumber(priammocount, 2), (820,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Primary ammo counter
+		if(secammocount != 0)
+		{
+			DrawString(mIndexFont, '\', (832,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Draw divider
+			DrawString(mIndexFont, FormatNumber(secammocount, 3), (840,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Draw Secondary ammo counter only if we have ammo available
+		}
+		
+		else
+		{
+			return;
+		}
 	}
 		
 	void DrawFullScreenStuff ()
@@ -118,16 +123,12 @@ class REHUD : BaseStatusBar
 		else
 			return;
 			
-		//Draw Armor	
-		if(GetArmorAmount() > 0)
+		//Draw Armor
+		let armor = CPlayer.mo.FindInventory("BasicArmor");
+		if(armor != null && armor.Amount > 0)
 		{
 			DrawImage("Armor", (115, 500), 0, 1.0, (-1,-1), (1,1));
 			DrawString(mIndexFont, FormatNumber(GetArmorAmount(), 3), (124,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Armor counter
-		}
-		
-		else
-		{
-			return;
 		}
 		
 		//Draw Ammo
@@ -136,9 +137,18 @@ class REHUD : BaseStatusBar
 		[primammo, secammo, priammocount, secammocount] = GetCurrentAmmo();
 		
 		DrawImage("SBar1", (835, 500), 0, 1.0, (-1,-1), (1,1));
-		DrawInventoryIcon(primammo, (880, 500));
-		DrawString(mIndexFont, FormatNumber(priammocount, 2), (866,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Primary ammo counter
-		DrawString(mIndexFont, FormatNumber(secammocount, 3), (886,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Secondary ammo counter
+		DrawInventoryIcon(primammo, (880, 499));
+		DrawString(mIndexFont, FormatNumber(priammocount, 2), (820,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Primary ammo counter
+		if(secammocount != 0)
+		{
+			DrawString(mIndexFont, '\', (832,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Draw divider
+			DrawString(mIndexFont, FormatNumber(secammocount, 3), (840,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Draw Secondary ammo counter only if we have ammo available
+		}
+		
+		else
+		{
+			return;
+		}
 	}
 	
 	override void Tick()
