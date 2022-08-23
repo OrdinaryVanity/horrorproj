@@ -1,3 +1,4 @@
+//Steve's Flashlight, modified.
 class Util {
 
     play static void setupFlashlight (int playerID, int flashID) {

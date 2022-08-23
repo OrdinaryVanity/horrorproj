@@ -34,14 +34,14 @@ class VignetteShaderHandler : StaticEventHandler
 		PlayerInfo p = players[consoleplayer];
 		double i = CVar.GetCVar("cl_vignette_intensity", p).GetFloat();
 		double f = CVar.GetCVar("cl_vignette_falloff", p).GetFloat();
-		Shader.SetUniform1f(p, "vignetteshader", "intensity", i);
-		Shader.SetUniform1f(p, "vignetteshader", "falloff", f);
-		Shader.SetEnabled(p, "vignetteshader", true);
+		PPShader.SetUniform1f("vignetteshader", "intensity", i);
+		PPShader.SetUniform1f("vignetteshader", "falloff", f);
+		PPShader.SetEnabled("vignetteshader", true);
 	}
 
 	ui void DisableVignette(void)
 	{
 		PlayerInfo p = players[consoleplayer];
-		Shader.SetEnabled(p, "vignetteshader", false);
+		PPShader.SetEnabled("vignetteshader", false);
 	}
 }

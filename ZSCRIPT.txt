@@ -1,4 +1,4 @@
-version "4.8.0"//"4.2.4"
+version "4.8.2"//"4.2.4"
 
 #include "zscript/vignette.zsc"
 #include "zscript/flashlight.zsc"
@@ -11,6 +11,11 @@ version "4.8.0"//"4.2.4"
 #include "zscript/Tokens.zsc"
 #include "zscript/Weapons.zsc"
 
+//HUD
+#include "zscript/HUD/Statusbar.zsc"
+
+//ZForms
+#include "REZForms/Include.zsc"
 
 Class Boolean : Inventory
 {

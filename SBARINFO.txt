@@ -1,4 +1,4 @@
-Resolution 640,480;
+/*Resolution 640,480;
 monospacefonts true, "0";
 CompleteBorder True;
 
@@ -80,3 +80,4 @@ StatusBar Normal, forcescaled, 1.0
 		}
 	} //End InGame block.
 } //End Statusbar block.
+*/

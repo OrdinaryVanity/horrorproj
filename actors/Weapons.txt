@@ -35,7 +35,7 @@ ACTOR Hammer : Weapon 20002
 	HMMR A 1 A_WeaponOffset(12,12, WOF_INTERPOLATE)
 	HMMR A 1 A_WeaponOffset(14,14, WOF_INTERPOLATE)
 	HMMR BCD 2
-	HMMR D 0 A_TakeInventory("FistStamina", random(4,9))
+	HMMR D 0 A_TakeInventory("FistStamina", random(4,6))
 	HMMR E 1 A_Quake(2,2,0,1)
 	HMMR F 1 A_CustomPunch(random(4,8) * 2, TRUE, CPF_PULLIN, "BulletPuff", 96.0)
 	HMMR GH 1
@@ -65,7 +65,7 @@ ACTOR Hammer : Weapon 20002
 	HMMR BCD 0
 	HMMR D 0 A_SetAngle(angle + 2.0, SPF_INTERPOLATE)
 	HMMR D 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE)
-	HMMR D 0 A_TakeInventory("FistStamina", random(7,13))
+	HMMR D 0 A_TakeInventory("FistStamina", random(7,10))
 	HMMR D 0 A_SetAngle(angle + 2.0, SPF_INTERPOLATE)
 	HMMR D 0 A_SetPitch(pitch + 1.0, SPF_INTERPOLATE)
 	HMMR D 0 A_Quake(4,4,0,1)
@@ -159,7 +159,7 @@ ACTOR Hammer : Weapon 20002
 	HRSW F 1
 	HRSW G 0 A_TakeInventory("FistStamina", random(7,13))
 	HRSW G 1 A_Quake(4,4,0,1)
-	HRSW H 1 A_CustomPunch(random(12,14) * 2, TRUE, CPF_PULLIN, "BulletPuff", 128.0)
+	HRSW H 1 A_CustomPunch(random(12,16) * 2, TRUE, CPF_PULLIN, "BulletPuff", 128.0)
 	HRSW IJ 0
 	TNT1 A 3
 	HRSW A 0 A_SetAngle(angle + 3.0, SPF_INTERPOLATE)

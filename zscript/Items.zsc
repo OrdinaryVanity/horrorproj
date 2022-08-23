@@ -1,4 +1,4 @@
-Actor CustomGArmor : BasicArmorPickup
+Class CustomGArmor : BasicArmorPickup
 {
 	Default
 	{
@@ -7,7 +7,7 @@ Actor CustomGArmor : BasicArmorPickup
 	}
 }
 
-Actor CustomBArmor : BasicArmorPickup
+Class CustomBArmor : BasicArmorPickup
 {
 	Default
 	{
@@ -16,7 +16,7 @@ Actor CustomBArmor : BasicArmorPickup
 	}
 }
 
-Actor CusArmor : CustomInventory replaces GreenArmor
+Class CusArmor : CustomInventory replaces GreenArmor
 {
 	Default{}
 	
@@ -35,7 +35,7 @@ Actor CusArmor : CustomInventory replaces GreenArmor
 	}
 }
 
-Actor CusArmor2 : CustomGArmor
+Class CusArmor2 : CustomGArmor
 { 
 	Default
 	{
@@ -43,7 +43,7 @@ Actor CusArmor2 : CustomGArmor
 	}
 }
 
-Actor CusBlueArmor : CustomInventory replaces BlueArmor
+Class CusBlueArmor : CustomInventory replaces BlueArmor
 {
 	Default {}
 	

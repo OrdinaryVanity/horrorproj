@@ -29,8 +29,8 @@ DoomEdNums
 
 GameInfo
 {
-PlayerClasses = "NewPlayer"
-AddEventHandlers = "VignetteShaderHandler"
+	PlayerClasses = "NewPlayer"
+	AddEventHandlers = "VignetteShaderHandler"
 
-//StatusBarClass = "MyHUD"
+	StatusBarClass = "REHUD"
 }
