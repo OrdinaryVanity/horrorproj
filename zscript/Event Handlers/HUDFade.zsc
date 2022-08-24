@@ -1,0 +1,44 @@
+//Credit to Boondorl for this. Thanks so much!
+
+Class REFade : StaticEventHandler
+{
+  private bool bWakeUp, bDelay;
+  private double duration;
+
+  void WakeUp(double dur)
+  {
+    bWakeUp = bDelay = true;
+    duration = dur;
+  }
+
+  void Clear()
+  {
+    bWakeUp = bDelay = false;
+    duration = 0;
+  }
+
+  override void UITick()
+  {
+    if (bWakeUp)
+    {
+      let hud = REHUD(statusBar);
+      if (hud)
+      hud.WakeUp(duration);
+    }
+  }
+
+  override void WorldTick()
+  {
+    if (bDelay)
+      bDelay = false;
+    else
+      Clear();
+  }
+
+  static void WakeUpHUD(double dur)
+  {
+    let h = REFade(StaticEventHandler.Find("REFade"));
+    if (h)
+      h.WakeUp(dur);
+  }
+}

@@ -12,6 +12,13 @@ Class MyFist : Weapon
 		+WEAPON.NOALERT;
 	}
 	
+	action void SetHUDVisibility(double dur)
+	{
+		let h = REFade(StaticEventHandler.Find("REFade"));
+		if (h)
+			h.WakeUpHUD(dur);
+	}
+	
 	States
 	{
 		Ready:
@@ -31,7 +38,7 @@ Class MyFist : Weapon
 			Loop;
 		
 		Fire:
-			TNT1 A 0;
+			TNT1 A 0 SetHUDVisibility(2.0);
 			TNT1 A 0 A_JumpIfInventory("FistStamina", 25, "FastFire");
 			UNLM A 0 A_TakeInventory("FistStamina", random(1,4));
 			UNLM B 1 ;

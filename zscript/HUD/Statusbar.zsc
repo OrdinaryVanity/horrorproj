@@ -4,6 +4,21 @@ class REHUD : BaseStatusBar
     // declare class fields, constants and such.
 	
 	HUDFont mIndexFont;
+	private bool bAwake;
+	private int timer;
+	private double hAlpha, prevAlpha, curAlpha;
+	
+	void WakeUp(double dur)
+	{
+		bAwake = true;
+		timer = ceil(TICRATE * dur);
+	}
+
+	void Sleep()
+	{
+		bAwake = false;
+		timer = 0;
+	}
 	
 	override void Init()
 	{
@@ -14,7 +29,7 @@ class REHUD : BaseStatusBar
         // created here.
 		
 		super.Init();
-		SetSize(32, 320, 200);
+		SetSize(0, 320, 200);
 		Font fnt = "SMALLFONT";
 		mIndexFont = HUDFont.Create(fnt); //cache the font
 	}
@@ -27,14 +42,26 @@ class REHUD : BaseStatusBar
         // depends on the player's framerate.
 		
 		super.Draw(state, TicFrac);
+		
+		hAlpha = prevAlpha*(4-ticFrac) + curAlpha*ticFrac;
+		if (hAlpha <= 0)
+			return;
+		
 		if (state == HUD_None)
 			return;
 			
 		if (state == HUD_StatusBar)
 		{
-			BeginStatusBar();
-			DrawMainBar (TicFrac);
+			if(CheckInventory("InGame",1))
+			{
+				BeginStatusBar();
+				DrawMainBar (TicFrac);
+			}
+			
+			else
+				return;
 		}
+		
 		else if (state == HUD_Fullscreen)
 		{
 			if(CheckInventory("InGame",1))
@@ -42,6 +69,7 @@ class REHUD : BaseStatusBar
 				BeginHUD();
 				DrawFullScreenStuff ();
 			}
+			
 			else
 				return;
 		}
@@ -49,7 +77,7 @@ class REHUD : BaseStatusBar
 	
 	void DrawMainbar (double TicFrac)
 	{
-		DrawImage("SBar2", (125, 500), 0, 1.0, (-1,-1), (1,1)); //Black background bar
+		/*DrawImage("SBar2", (125, 500), 0, 1.0, (-1,-1), (1,1)); //Black background bar
 		DrawBar("STAMINAF", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (144, 485), 0, 0); //Stamina bar
 		DrawString(mIndexFont, FormatNumber(CPlayer.health, 3), (80,487), 0, Font.CR_WHITE, 1.0, -1, 4, (1,1)); //Health counter
 		let heart = CPlayer.Health;
@@ -96,39 +124,40 @@ class REHUD : BaseStatusBar
 		{
 			return;
 		}
+		*/
 	}
 		
 	void DrawFullScreenStuff ()
 	{
-		DrawImage("SBar2", (125, 500), 0, 1.0, (-1,-1), (1,1));
-		DrawBar("STAMINAF", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (144, 485), 0, 0); //Stamina bar
-		DrawString(mIndexFont, FormatNumber(CPlayer.health, 3), (80,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Health counter
-		
+		DrawImage("SBar2", (125, 500), 0, hAlpha, (-1,-1), (1,1));
+		DrawBar("STAMINAF", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (144, 485), 0, 0, 0, hAlpha); //Stamina bar
+		DrawString(mIndexFont, FormatNumber(CPlayer.health, 3), (80,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Health counter
+			
 		//Draw Health
 		let heart = CPlayer.Health;
 		if(heart >= 90)
-			DrawImage("Health1", (69, 500), 0, 1.0, (-1,-1), (1,1));
+			DrawImage("Health1", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 75) 
-			DrawImage("Health1B", (69, 500), 0, 1.0, (-1,-1), (1,1));
+			DrawImage("Health1B", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 50)
-			DrawImage("Health1C", (69, 500), 0, 1.0, (-1,-1), (1,1));
+			DrawImage("Health1C", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 40)
-			DrawImage("Health1D", (69, 500), 0, 1.0, (-1,-1), (1,1));
+			DrawImage("Health1D", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 30)
-			DrawImage("Health1E", (69, 500), 0, 1.0, (-1,-1), (1,1));
+			DrawImage("Health1E", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 1)
-			DrawImage("Health1F", (69, 500), 0, 1.0, (-1,-1), (1,1));
+			DrawImage("Health1F", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart < 1)
-			DrawImage("Gone", (69, 500), 0, 1.0, (-1,-1), (1,1));
+			DrawImage("Gone", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else
 			return;
-			
+				
 		//Draw Armor
 		let armor = CPlayer.mo.FindInventory("BasicArmor");
 		if(armor != null && armor.Amount > 0)
 		{
-			DrawImage("Armor", (115, 500), 0, 1.0, (-1,-1), (1,1));
-			DrawString(mIndexFont, FormatNumber(GetArmorAmount(), 3), (124,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Armor counter
+			DrawImage("Armor", (115, 500), 0, hAlpha, (-1,-1), (1,1));
+			DrawString(mIndexFont, FormatNumber(GetArmorAmount(), 3), (124,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Armor counter
 		}
 		
 		//Draw Ammo
@@ -136,15 +165,15 @@ class REHUD : BaseStatusBar
 		int priammocount, secammocount;
 		[primammo, secammo, priammocount, secammocount] = GetCurrentAmmo();
 		
-		DrawImage("SBar1", (835, 500), 0, 1.0, (-1,-1), (1,1));
+		DrawImage("SBar1", (835, 500), 0, hAlpha, (-1,-1), (1,1));
 		DrawInventoryIcon(primammo, (880, 499));
-		DrawString(mIndexFont, FormatNumber(priammocount, 2), (820,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Primary ammo counter
+		DrawString(mIndexFont, FormatNumber(priammocount, 2), (820,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Primary ammo counter
 		if(secammocount != 0)
 		{
-			DrawString(mIndexFont, '\', (832,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Draw divider
-			DrawString(mIndexFont, FormatNumber(secammocount, 3), (840,487), 0, Font.CR_White, 1.0, -1, 4, (1,1)); //Draw Secondary ammo counter only if we have ammo available
+			DrawString(mIndexFont, '\', (832,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw divider
+			DrawString(mIndexFont, FormatNumber(secammocount, 3), (840,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw Secondary ammo counter only if we have ammo available
 		}
-		
+			
 		else
 		{
 			return;
@@ -153,12 +182,18 @@ class REHUD : BaseStatusBar
 	
 	override void Tick()
 	{
-		// Similarly to actors, HUDs have this function,
-        // and it's called every tic, i.e. 35 times per
-        // second, regardless of framerate.
-        // You can't draw anything here, but it's good
-        // for things that need to happen on a fixed
-        // timed basis.
 		super.Tick();
+
+		if (timer > 0 && --timer <= 0)
+		Sleep();
+
+		prevAlpha = curAlpha;
+		if (bAwake)
+		{
+			if (curAlpha < 1)
+			curAlpha = min(curAlpha + 0.05, 1);
+		}
+		else if (curAlpha > 0)
+			curAlpha = max(curAlpha - 0.005, 0);
 	}
 }
