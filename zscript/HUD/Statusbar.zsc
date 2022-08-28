@@ -136,7 +136,7 @@ class REHUD : BaseStatusBar
 		//Draw Health
 		let heart = CPlayer.Health;
 		if(heart >= 90)
-			DrawImage("Health1", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+				DrawImage("Health1", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 75) 
 			DrawImage("Health1B", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 50)
@@ -163,11 +163,18 @@ class REHUD : BaseStatusBar
 		//Draw Ammo
 		Inventory primammo, secammo;
 		int priammocount, secammocount;
+		Weapon mo;
+		let weap = CPlayer.ReadyWeapon;
+		
 		[primammo, secammo, priammocount, secammocount] = GetCurrentAmmo();
 		
 		DrawImage("SBar1", (835, 500), 0, hAlpha, (-1,-1), (1,1));
-		DrawInventoryIcon(primammo, (880, 499));
-		DrawString(mIndexFont, FormatNumber(priammocount, 2), (820,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Primary ammo counter
+		DrawInventoryIcon(primammo, (880, 499), 0, hAlpha);
+		if(weap && weap.Ammo1)
+			DrawString(mIndexFont, FormatNumber(priammocount, 2), (820,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw Primary ammo counter only if the weapon uses ammo
+		else
+			return;
+			
 		if(secammocount != 0)
 		{
 			DrawString(mIndexFont, '\', (832,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw divider
@@ -175,9 +182,7 @@ class REHUD : BaseStatusBar
 		}
 			
 		else
-		{
 			return;
-		}
 	}
 	
 	override void Tick()

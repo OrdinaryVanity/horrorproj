@@ -31,3 +31,14 @@ Class NewPlayer : DoomPlayer
 		Player.SideMove 1.50;
 	}
 }
+
+Class REWeapon: Weapon
+{
+	//Thanks to Boondorl for this. Triggers the HUD to fade back in ala RE7/Village.
+	action void SetHUDVisibility(double dur)
+	{
+		let h = REFade(StaticEventHandler.Find("REFade"));
+		if (h)
+			h.WakeUpHUD(dur);
+	}
+}

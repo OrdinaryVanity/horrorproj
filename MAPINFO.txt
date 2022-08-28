@@ -24,7 +24,11 @@ DoomEdNums
 	
 	//Weapons
 	
+	20000 = "BerettaM9"
 	20001 = "MyFist"
+	20002 = "Hammer"
+	
+	30002 = "BM9Clip"
 }
 
 GameInfo
