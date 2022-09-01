@@ -25,10 +25,9 @@ Class NewPlayer : DoomPlayer
 		Player.SoundClass "DoomPlayer";
 		Player.WeaponSlot 1, "MyFist", "Hammer";
 		Player.WeaponSlot 2, "BerettaM9";
-		Player.WeaponSlot 3, "BenelliM3S";
-		Player.WeaponSlot 3, "SuperShotgun";
-		Player.ForwardMove 1.25;
-		Player.SideMove 1.50;
+		Player.WeaponSlot 3, "BenelliM3S", "SuperShotgun";
+		Player.ForwardMove 1.50;
+		Player.SideMove 1.75;
 	}
 }
 

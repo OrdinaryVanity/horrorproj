@@ -148,7 +148,7 @@ class REHUD : BaseStatusBar
 		else if(heart >= 1)
 			DrawImage("Health1F", (69, 500), 0, hAlpha, (-1,-1), (1,1));
 		else if(heart < 1)
-			DrawImage("Gone", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+			DrawImage("Gone", (69, 500), 0, hAlpha, (-1,-1), (1.5,1.5));
 		else
 			return;
 				

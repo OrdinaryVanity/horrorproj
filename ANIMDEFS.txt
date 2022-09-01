@@ -4,17 +4,18 @@ PIC FUZZ_2 tics 1
 PIC FUZZ_3 tics 1
 
 TEXTURE HEALTH1
-PIC Health1 tics 7
-PIC Health2 tics 6
-PIC Health3 tics 6
-PIC Health4 tics 6
-PIC Health5 tics 6
-PIC Health6 tics 6
-PIC Health7 tics 6
-PIC Health8 tics 6
+PIC Health1 tics 5
+PIC Health2 tics 5
+PIC Health3 tics 5
+PIC Health4 tics 5
+PIC Health5 tics 5
+PIC Health6 tics 5
+PIC Health7 tics 5
+PIC Health8 tics 5
+PIC Health9 tics 10
 
 TEXTURE HEALTH1B
-PIC Health1b tics 6
+PIC Health1b tics 5
 PIC Health2b tics 5
 PIC Health3b tics 5
 PIC Health4b tics 5
@@ -22,9 +23,10 @@ PIC Health5b tics 5
 PIC Health6b tics 5
 PIC Health7b tics 5
 PIC Health8b tics 5
+PIC Health9b tics 8
 
 TEXTURE HEALTH1C
-PIC Health1c tics 5
+PIC Health1c tics 4
 PIC Health2c tics 4
 PIC Health3c tics 4
 PIC Health4c tics 4
@@ -32,9 +34,10 @@ PIC Health5c tics 4
 PIC Health6c tics 4
 PIC Health7c tics 4
 PIC Health8c tics 4
+PIC Health9c tics 6
 
 TEXTURE HEALTH1D
-PIC Health1d tics 4
+PIC Health1d tics 3
 PIC Health2d tics 3
 PIC Health3d tics 3
 PIC Health4d tics 3
@@ -42,9 +45,10 @@ PIC Health5d tics 3
 PIC Health6d tics 3
 PIC Health7d tics 3
 PIC Health8d tics 3
+PIC Health9d tics 5
 
 TEXTURE HEALTH1E
-PIC Health1e tics 3
+PIC Health1e tics 2
 PIC Health2e tics 2
 PIC Health3e tics 2
 PIC Health4e tics 2
@@ -52,6 +56,7 @@ PIC Health5e tics 2
 PIC Health6e tics 2
 PIC Health7e tics 2
 PIC Health8e tics 2
+PIC Health9e tics 3
 
 TEXTURE HEALTH1F
 PIC Health1f tics 2
@@ -62,6 +67,7 @@ PIC Health5f tics 1
 PIC Health6f tics 1
 PIC Health7f tics 1
 PIC Health8f tics 1
+PIC Health9f tics 1
 
 TEXTURE BLDVIG01
 PIC BLDVIG01 tics 5
