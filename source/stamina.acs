@@ -23,7 +23,7 @@ Script "Stamina" ENTER //Handle movement speed by stamina value
 		}
 		else
 		{
-			SetActorProperty(pln, APROP_SPEED, 0.55);
+			SetActorProperty(pln, APROP_SPEED, 0.65);
 		}
 		
 	Delay(1);
@@ -48,8 +48,8 @@ Script "Sprinting" ENTER //Handle stamina regen
 		x = GetActorX(0);
 		y = GetActorY(0);
 		
-		//are we pressing forward and run AND moving?
-		if ((buttons & (BT_SPEED | BT_FORWARD)) == (BT_SPEED | BT_FORWARD) && (xb != x) && (yb != y))
+		//are we pressing forward/backward and run AND moving?
+		if (((buttons & (BT_SPEED | BT_FORWARD)) == (BT_SPEED | BT_FORWARD) && (xb != x) && (yb != y)) || ((buttons & (BT_SPEED | BT_BACK)) == (BT_SPEED | BT_BACK) && (xb != x) && (yb != y)))
 		{
 			
 			GiveInventory("SprintActive", 1); //We are sprinting baby!
