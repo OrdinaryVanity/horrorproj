@@ -14,9 +14,6 @@ version "4.8.2"//"4.2.4"
 //HUD
 #include "zscript/HUD/Statusbar.zsc"
 
-//ZForms
-#include "REZForms/Include.zsc"
-
 //Event Handlers
 #include "zscript/Event Handlers/HUDFade.zsc"
 
