@@ -129,26 +129,30 @@ class REHUD : BaseStatusBar
 		
 	void DrawFullScreenStuff ()
 	{
-		DrawImage("SBar2", (125, 500), 0, hAlpha, (-1,-1), (1,1));
-		DrawBar("STAMINAF", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (144, 485), 0, 0, 0, hAlpha); //Stamina bar
-		DrawString(mIndexFont, FormatNumber(CPlayer.health, 3), (80,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Health counter
-			
+		//DrawImage("SBar2", (125, 500), 0, hAlpha, (-1,-1), (1,1));
+		DrawImage("SBar2", (20, -8), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
+		//DrawBar("STAMINAF", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (144, 485), 0, 0, 0, hAlpha); //Stamina bar
+		DrawBar("STAMINAF", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (30, -24), 0, SHADER_HORZ, DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha); //Stamina bar
+		//DrawString(mIndexFont, FormatNumber(CPlayer.health, 3), (80,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Health counter
+		DrawString(mIndexFont, FormatNumber(CPlayer.health, 3), (34,-21), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, Font.CR_White, hAlpha, -1, 4, (1,1)); //Health counter
+		
 		//Draw Health
 		let heart = CPlayer.Health;
 		if(heart >= 90)
-				DrawImage("Health1", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+			//DrawImage("Health1", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+			DrawImage("Health1", (10, -4), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 75) 
-			DrawImage("Health1B", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+			DrawImage("Health1B", (10, -4), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 50)
-			DrawImage("Health1C", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+			DrawImage("Health1C", (10, -4), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 40)
-			DrawImage("Health1D", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+			DrawImage("Health1D", (10, -4), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 30)
-			DrawImage("Health1E", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+			DrawImage("Health1E", (10, -4), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
 		else if(heart >= 1)
-			DrawImage("Health1F", (69, 500), 0, hAlpha, (-1,-1), (1,1));
+			DrawImage("Health1F", (10, -4), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
 		else if(heart < 1)
-			DrawImage("Gone", (69, 500), 0, hAlpha, (-1,-1), (1.5,1.5));
+			DrawImage("Gone", (10, -4), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1.5,1.5));
 		else
 			return;
 				
@@ -156,8 +160,8 @@ class REHUD : BaseStatusBar
 		let armor = CPlayer.mo.FindInventory("BasicArmor");
 		if(armor != null && armor.Amount > 0)
 		{
-			DrawImage("Armor", (115, 500), 0, hAlpha, (-1,-1), (1,1));
-			DrawString(mIndexFont, FormatNumber(GetArmorAmount(), 3), (124,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Armor counter
+			DrawImage("Armor", (64, -6), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
+			DrawString(mIndexFont, FormatNumber(GetArmorAmount(), 3), (80,-21), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, Font.CR_White, hAlpha, -1, 4, (1,1)); //Armor counter
 		}
 		
 		//Draw Ammo
@@ -168,17 +172,17 @@ class REHUD : BaseStatusBar
 		
 		[primammo, secammo, priammocount, secammocount] = GetCurrentAmmo();
 		
-		DrawImage("SBar1", (835, 500), 0, hAlpha, (-1,-1), (1,1));
-		DrawInventoryIcon(primammo, (880, 499), 0, hAlpha);
+		DrawImage("SBar1", (-20, -8), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, hAlpha, (-1,-1), (1,1));
+		DrawInventoryIcon(primammo, (-20, -10), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, hAlpha);
 		if(weap && weap.Ammo1)
-			DrawString(mIndexFont, FormatNumber(priammocount, 2), (820,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw Primary ammo counter only if the weapon uses ammo
+			DrawString(mIndexFont, FormatNumber(priammocount, 2), (-85,-21), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw Primary ammo counter only if the weapon uses ammo
 		else
 			return;
 			
 		if(secammocount != 0)
 		{
-			DrawString(mIndexFont, '\', (832,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw divider
-			DrawString(mIndexFont, FormatNumber(secammocount, 3), (840,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw Secondary ammo counter only if we have ammo available
+			DrawString(mIndexFont, '\', (-70,-21), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw divider
+			DrawString(mIndexFont, FormatNumber(secammocount, 3), (-60,-21), DI_SCREEN_RIGHT_BOTTOM|DI_ITEM_RIGHT_BOTTOM, Font.CR_White, hAlpha, -1, 4, (1,1)); //Draw Secondary ammo counter only if we have ammo available
 		}
 			
 		else
