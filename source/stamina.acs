@@ -2,7 +2,7 @@
 #include "zcommon.acs"
 #include "functions.acs"
 
-Script "Stamina" ENTER //Handle movement speed by stamina value
+/*Script "Stamina" ENTER //Handle movement speed by stamina value
 {
 	int pln = PlayerNumber();
 	while(TRUE)
@@ -28,7 +28,7 @@ Script "Stamina" ENTER //Handle movement speed by stamina value
 		
 	Delay(1);
 	}
-}
+}*/
 
 Script "Sprinting" ENTER //Handle stamina regen
 {
@@ -48,37 +48,67 @@ Script "Sprinting" ENTER //Handle stamina regen
 		x = GetActorX(0);
 		y = GetActorY(0);
 		
-		//are we pressing forward/backward and run AND moving?
+		//are we pressing forward/backward, run AND moving?
 		if (((buttons & (BT_SPEED | BT_FORWARD)) == (BT_SPEED | BT_FORWARD) && (xb != x) && (yb != y)) || ((buttons & (BT_SPEED | BT_BACK)) == (BT_SPEED | BT_BACK) && (xb != x) && (yb != y)))
 		{
-			
 			GiveInventory("SprintActive", 1); //We are sprinting baby!
 			
-			//while sprinting, stamina regen is slower
-			if(CheckInventory("SprintActive") > 0) 
+			//is stamina 10% or lower?
+			if(CheckInventory("FistStamina") <= 25)
 			{
-				GiveInventory("FistStamina", 1);
-				Delay(12);
+				//Do not give stamina
+				Delay(1);
 			}
 			
-			//regen stamina even if we are moving but NOT sprinting
 			else
 			{
+				//while sprinting, stamina regen is slower (once a second)
+				GiveInventory("FistStamina", 1);
+				Delay(35);
+			}
+		}
+
+		else if (((buttons & (BT_FORWARD)) == (BT_FORWARD) && (xb != x) && (yb != y)) || ((buttons & (BT_BACK)) == (BT_BACK) && (xb != x) && (yb != y)))
+		{
+			//is stamina 10% or lower? regen very slowly
+			if(CheckInventory("FistStamina") <= 25)
+			{
+				//regen s l o w
 				TakeInventory("SprintActive", 1);
 				GiveInventory("FistStamina", 1);
-				Delay(2);
+				Delay(35);
+			}
+
+			else
+			{
+				//regen stamina a little faster even if we are moving but NOT sprinting
+				TakeInventory("SprintActive", 1);
+				GiveInventory("FistStamina", 1);
+				Delay(10);
 			}
 		}	
 		
 		//regen stamina while we are not sprinting
 		else
 		{
-			TakeInventory("SprintActive", 1);
-			GiveInventory("FistStamina", 1);
-			Delay(2);
+			//is stamina 10% or lower? regen very slowly
+			if(CheckInventory("FistStamina") <= 25)
+			{
+				//regen a little quicker
+				TakeInventory("SprintActive", 1);
+				GiveInventory("FistStamina", 1);
+				Delay(10);
+			}
+
+			else
+			{
+				TakeInventory("SprintActive", 1);
+				GiveInventory("FistStamina", 1);
+				Delay(1);
+			}
 		}
 	
-	Delay(2);
+	Delay(1);
 	if (isDead(0)) { terminate; } //Don't regen stamina if we're dead
     Delay(1);
 	}

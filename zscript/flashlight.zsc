@@ -74,7 +74,7 @@ class ActorHeadLight : Spotlight {
         args[3] = CVar.FindCVar("flashlight_intensity").GetInt();
         
         self.SpotInnerAngle = CVar.FindCVar("flashlight_inner").GetFloat();        
-        self.SpotOuterAngle = CVar.FindCVar("flashlight_outer").GetFloat();
+        self.SpotOuterAngle = CVar.FindCVar("flashlight_outer").GetFloat()+4;
         
         self.location = CVar.FindCVar("flashlight_location").GetInt();       
        
@@ -109,7 +109,7 @@ class ActorHeadLight : Spotlight {
             switch (location) {
             
                 case HELMET:
-                    offset = (0, 0, toFollow.player.viewheight + zBump);
+                    offset = (0, 0, toFollow.player.viewheight * .5 + zBump);
                     break;
                     
                 case RIGHT_SHOULDER:
@@ -128,7 +128,7 @@ class ActorHeadLight : Spotlight {
                     offset = (0, 0, 0);
             
             }
-				args[3] = Random(CVar.FindCVar("flashlight_intensity").GetInt()-8, CVar.FindCVar("flashlight_intensity").GetInt()+4);
+				args[3] = Random(CVar.FindCVar("flashlight_intensity").GetInt()-8, CVar.FindCVar("flashlight_intensity").GetInt()+8);
 	
 			
             A_SetAngle(toFollow.angle, 0);

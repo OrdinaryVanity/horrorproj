@@ -132,7 +132,7 @@ class REHUD : BaseStatusBar
 		//DrawImage("SBar2", (125, 500), 0, hAlpha, (-1,-1), (1,1));
 		DrawImage("SBar2", (20, -8), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha, (-1,-1), (1,1));
 		//DrawBar("STAMINAF", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (144, 485), 0, 0, 0, hAlpha); //Stamina bar
-		DrawBar("STAMINAF", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (30, -24), 0, SHADER_HORZ, DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha); //Stamina bar
+		DrawBar("STAMINAS", "STAMINAE", GetAmount("FistStamina"), GetMaxAmount("FistStamina"), (26, -24), 0, SHADER_HORZ, DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, hAlpha); //Stamina bar
 		//DrawString(mIndexFont, FormatNumber(CPlayer.health, 3), (80,487), 0, Font.CR_White, hAlpha, -1, 4, (1,1)); //Health counter
 		DrawString(mIndexFont, FormatNumber(CPlayer.health, 3), (34,-21), DI_SCREEN_LEFT_BOTTOM|DI_ITEM_LEFT_BOTTOM, Font.CR_White, hAlpha, -1, 4, (1,1)); //Health counter
 		

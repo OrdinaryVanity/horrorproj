@@ -3,7 +3,7 @@ Class NewPlayer : DoomPlayer
 
 	Default
 	{
-		Speed 0.50;
+		Speed 1;
 		Health 100;
 		Radius 16;
 		Mass 100;
@@ -26,8 +26,8 @@ Class NewPlayer : DoomPlayer
 		Player.WeaponSlot 1, "MyFist", "Hammer";
 		Player.WeaponSlot 2, "BerettaM9";
 		Player.WeaponSlot 3, "BenelliM3S", "SuperShotgun";
-		Player.ForwardMove 1.50;
-		Player.SideMove 1.75;
+		Player.ForwardMove 1.50,2;
+		Player.SideMove 1.50,2;
 	}
 }
 

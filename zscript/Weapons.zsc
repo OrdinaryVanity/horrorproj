@@ -940,7 +940,7 @@ Class NineMMDebris: Actor
 			BTTA Y 1;
 			BTTA Y 1 A_PlaySound("9MMSH",1,1);
 			BTTA Y -1;
-			Loop;
+			Stop;
 	}
 }
 
@@ -1187,7 +1187,7 @@ Class TwelveGDebris : Actor
 			BRS5 M 1 A_PlaySound("12GSH",1,1);
 			BRS5 NOPQRST 1;
 			BRS5 I -1;
-			Loop;
+			Stop;
 	}
 }
 
