@@ -10,7 +10,7 @@ Class NewPlayer : DoomPlayer
 		Height 56;
 		PainChance 255;
 		PainSound "pl_pain";
-		Player.RunHealth 15;
+		Player.RunHealth 10;
 		// Player.AttackZOffset 35
 		Player.ViewBob 0.5;
 		Player.JumpZ 10.0;

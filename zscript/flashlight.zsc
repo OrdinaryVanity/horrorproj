@@ -128,7 +128,7 @@ class ActorHeadLight : Spotlight {
                     offset = (0, 0, 0);
             
             }
-				args[3] = Random(CVar.FindCVar("flashlight_intensity").GetInt()-8, CVar.FindCVar("flashlight_intensity").GetInt()+8);
+				args[3] = Random(CVar.FindCVar("flashlight_intensity").GetInt()-2, CVar.FindCVar("flashlight_intensity").GetInt()+2);
 	
 			
             A_SetAngle(toFollow.angle, 0);
