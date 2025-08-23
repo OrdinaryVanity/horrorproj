@@ -93,3 +93,12 @@ $ambient 1 STATIC POINT CONTINUOUS 1
 STATIC STATIC
 $ambient 2 BARRELF POINT 1.0 CONTINUOUS 1
 BARRELF BARRELF
+
+//steam (from realm667)
+Steam/Loop	STEMLOOP
+
+//explosion sounds
+$random explode/hit { expl/hit1 expl/hit2 expl/hit3 }
+expl/hit1               EXPLEXP1
+expl/hit2               EXPLEXP2
+expl/hit3               EXPLEXP3

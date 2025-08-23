@@ -21,6 +21,7 @@ DoomEdNums
 	
 	12000 = "RainSpawner"
 	12001 = "Note1"
+	12002 = "REParticle"
 	
 	//Weapons
 	
@@ -38,4 +39,10 @@ GameInfo
 	AddEventHandlers = "REFade"
 
 	StatusBarClass = "REHUD"
+}
+
+map MAP01 "The Lab" // By Barry Burton
+{
+    next = "MAP02"
+    music = "REUGNDLB" // RE2 - The Underground Laboratory
 }

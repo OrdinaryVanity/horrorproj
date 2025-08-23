@@ -73,4 +73,182 @@ Class Note1 : Actor
 			Stop;
 	}
 }
+
+class REParticle : Actor
+{
+	Default
+	{
+		// $Title Random Particle Spawner
+		// $Category Decoration
+		// $Arg0 Particle Types
+		// $Arg0Tooltip "What type of particle should the spawner create"
+		// $Arg0Type 11
+		// {{{1}}}}
+		// $Arg1 Frequency
+		// $Arg1Tooltip "How frequently (in tics) the spawner should create a particle"
+		// $Arg1Default 35
+		+NoInteraction;
+		+NoGravity;
+	}
+	
+	// Give some names to the possible values of Args[0]
+	enum EParticleTypes
+	{
+		TYPE_DEFAULT = 0,
+		TYPE_SPARKS = 1,
+		TYPE_STEAM = 2
+	}
+	
+	Vector3 offsets; // The offsets relative to the spawner to use for each particle.
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		// Spawn a particle every time that the age of the spawner can be divided by the spawn frequency. Or immediately spawn one if the frequency is 0 or less.
+		if (args[1] <= 0 || GetAge() % args[1] == 0)
+		{
+			// Play electric sound for spark particles.
+			if (args[0] == TYPE_SPARKS){
+				A_StartSound ("world/spark",CHAN_BODY,flags:CHANF_NOSTOP,0.1,ATTN_NORM);
+			}
+
+			else if (args[0] == TYPE_STEAM){
+				A_StartSound ("Steam/Loop",CHAN_BODY,flags:CHANF_LOOPING,0.1,ATTN_NORM);
+			}
+			// Stop sound if the particle type was changed during runtime.
+			else
+				A_StopSound (CHAN_BODY);
 			
+			// Spawn boring default particle.
+			if (args[0] == TYPE_DEFAULT)
+			{
+				offsets = (FRandom (64,-64),FRandom (64,-64),0);
+				
+				FSpawnParticleParams DefaultParticle;
+				DefaultParticle.Color1 = "Gray";
+				DefaultParticle.Style = STYLE_None;
+				DefaultParticle.Lifetime = 70;
+				DefaultParticle.Pos = Vec3Offset (Offsets.X,Offsets.Y,Offsets.Z); // Spawn relative to the spawner.
+				DefaultParticle.Size = 1.5;
+				DefaultParticle.SizeStep = 1;
+				DefaultParticle.Vel.Z = FRandom (0.2,6); // Randomize the velocity of the particle.
+				DefaultParticle.StartAlpha = 1;
+				DefaultParticle.FadeStep = 0.004;
+				
+				Level.SpawnParticle (DefaultParticle);
+			}
+			// Spawn cool fire particle.
+			else if (args[0] == TYPE_SPARKS)
+			{
+				offsets = (FRandom (-1,-4), FRandom (-1,-4), FRandom (-1,-4));
+				
+				FSpawnParticleParams SparkParticle;
+				SparkParticle.Color1 = "Yellow";
+				SparkParticle.Style = STYLE_Add;
+				SparkParticle.Flags = SPF_ROLL|SPF_FULLBRIGHT;
+				SparkParticle.Vel = (FRandom (-1.5,-4.5),FRandom (-1.5,-4.5),FRandom (-4.0,-10.0)); // Randomize the velocity of the particle.
+				SparkParticle.RollVel = 0.50;
+				SparkParticle.StartAlpha = 1;
+				SparkParticle.Size = FRandom(1,4);
+				SparkParticle.SizeStep = 0.1;
+				SparkParticle.FadeStep = 0.10;
+				SparkParticle.Lifetime = FRandom (35,35*4); // Randomize the lifespan of the particle.
+				SparkParticle.Pos = Vec3Offset (Offsets.X,Offsets.Y,Offsets.Z); // Spawn relative to the spawner.
+				
+				Level.SpawnParticle (SparkParticle);
+				Level.SpawnParticle (SparkParticle); // Spawn more particles for better effect.
+				Level.SpawnParticle (SparkParticle);
+
+			}
+			
+			else if (args[0] == TYPE_STEAM)
+			{
+
+				/*FSpawnParticleParams SteamParticle;
+				SteamParticle.color1 = -1;
+				SteamParticle.texture = TexMan.CheckForTexture("SMOKA0");
+				SteamParticle.flags = SPF_ROLL|SPF_REPLACE;
+				SteamParticle.style = STYLE_Add;
+				SteamParticle.size = 4;
+				SteamParticle.sizestep = SteamParticle.size * 0.035;
+				SteamParticle.lifetime = 24;
+				SteamParticle.startalpha = 0.8;
+				SteamParticle.fadestep = -1;
+				SteamParticle.pos = self.pos;
+				SteamParticle.vel.z = -5;
+				SteamParticle.accel.z = SteamParticle.vel.z / (SteamParticle.lifetime * -2.0);
+				SteamParticle.startroll = frandom[pipesmoke](0, 360);
+				SteamParticle.rollvel = frandom[pipesmoke](-10, 10);
+				SteamParticle.rollacc = SteamParticle.rollvel / -SteamParticle.lifetime;
+				level.SpawnParticle(SteamParticle);*/
+
+				FSpawnParticleParams p;
+				p.color1 = -1;
+				p.texture = TexMan.CheckForTexture("STEML0");
+				p.flags = SPF_ROLL|SPF_REPLACE;
+				p.style = STYLE_Add;
+				p.size = 8;
+				p.sizestep = p.size * 0.35;
+				p.lifetime = 24;
+				p.startalpha = 0.8;
+				p.fadestep = -1;
+				p.pos = self.pos;
+				p.vel.z = -5;
+				p.accel.z = p.vel.z / (p.lifetime * -2.0);
+				p.startroll = frandom[pipesmoke](0, 360);
+				p.rollvel = frandom[pipesmoke](-10, 10);
+				p.rollacc = p.rollvel / -p.lifetime;
+				level.SpawnParticle(p);
+
+			}
+			
+			// If the spawner has no frequency, spawn only one particle and go away. Allows for spawning a single permanent Doomguy hologram for example.
+			if (Args[1] <= 0)
+			{
+				Destroy();
+			}
+		}
+	}
+}
+
+Class ExplosionProp : Actor
+{
+	Default {
+    	RenderStyle "Add";
+    	Alpha 0.9;
+		Scale 0.55;
+		+NOBLOCKMAP;
+		+NOINTERACTION;
+		+FORCEXYBILLBOARD;
+	}
+
+    States {
+		Spawn:
+		    TNT1 A 0 NoDelay A_StartSound("explode/hit");
+			TNT1 A 0 A_Jump(256,"Spawn1","Spawn2","Spawn3","Spawn4","Spawn5","Spawn6","Spawn7");
+			TNT1 A 1;
+			Stop;
+		Spawn1:
+			MXP1 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT;
+			Stop;
+		Spawn2:
+			MXP2 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT;
+			Stop;
+		Spawn3:
+			MXP3 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT;
+			Stop;
+		Spawn4:
+			MXP4 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT;
+			Stop;
+		Spawn5:
+			MXP5 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT;
+			Stop;
+		Spawn6:
+			MXP6 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT;
+			Stop;
+		Spawn7:
+			MXP7 ABCDEFGHIJKLMNOPQRSTUVWXYZ 1 BRIGHT;
+			Stop;
+    	}
+}
