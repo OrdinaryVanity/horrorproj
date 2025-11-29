@@ -3,7 +3,7 @@ Class ZombieMan2 : ZombieMan replaces ZombieMan
 	Default
 	{
 		DropItem "BM9Ammo", 65;
-		DropItem "BerettaDummy", 20;
+		DropItem "BerettaDummy",40;
 	}
 }
 
@@ -12,6 +12,6 @@ Class ShotgunGuy2 : ShotgunGuy replaces ShotgunGuy
 	Default
 	{
 		DropItem "ShotShell", 65;
-		DropItem "BenelliDummy", 20;
+		DropItem "BenelliDummy", 30;
 	}
 }

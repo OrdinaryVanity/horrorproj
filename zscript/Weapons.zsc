@@ -916,7 +916,7 @@ Class BerettaDummy : CustomInventory
         Stop;
 
     Pickup:
-        // If you have a beretta, go to HaveBeretta state, and give a full mag.
+        // If you have a beretta, go to HaveBeretta state, and give a random amount in the mag.
         // If not, give beretta.
         TNT1 A 0 A_JumpIfInventory("BerettaM9", 1, "HaveBeretta");
         TNT1 A 0 A_GiveInventory("BerettaM9");
@@ -924,7 +924,7 @@ Class BerettaDummy : CustomInventory
         Stop;
 
     HaveBeretta:
-        TNT1 A 0 A_GiveInventory("BM9Clip", 15);
+        TNT1 A 0 A_GiveInventory("BM9Ammo", random(3,15));
 		TNT1 A 0 A_Log("\cGYou empty the Beretta.");
         Stop;
     }
@@ -1319,7 +1319,7 @@ Class BenelliDummy : CustomInventory
 			Stop;
 
 		Pickup:
-			// If you have a shotgun, go to HaveShotgun state, and give four shells.
+			// If you have a shotgun, go to HaveShotgun state, and give between 2-6 shells.
 			// If not, give shotgun.
 			TNT1 A 0 A_JumpIfInventory("BenelliM3S", 1, "HaveShotgun");
 			TNT1 A 0 A_GiveInventory("BenelliM3S");
@@ -1327,7 +1327,7 @@ Class BenelliDummy : CustomInventory
 			Stop;
 
 		HaveShotgun:
-			TNT1 A 0 A_GiveInventory("ShotShell", 4);
+			TNT1 A 0 A_GiveInventory("ShotShell", random(2,6));
 			TNT1 A 0 A_Log("\cGYou empty the Benelli M3S.");
 			Stop;
     }

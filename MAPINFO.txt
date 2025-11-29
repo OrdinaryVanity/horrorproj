@@ -45,4 +45,7 @@ map MAP01 "The Lab" // By Barry Burton
 {
     next = "MAP02"
     music = "REUGNDLB" // RE2 - The Underground Laboratory
+	//sky1 = "HEXSKY1A", -0.10
+	//sky2 = "HEXSKY1B", 0.2
+	//ForceNoSkyStretch
 }

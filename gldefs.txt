@@ -23,6 +23,13 @@ Object ExplosionProp { Frame MXP1F0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP1G0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP1H0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP1I0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP1J0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP1K0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP1L0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP1M0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP1N0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP1O0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP1P0 { Light ExplosionGlow }}
 
 Object ExplosionProp { Frame MXP2A0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP2B0 { Light ExplosionGlow }}
@@ -33,6 +40,13 @@ Object ExplosionProp { Frame MXP2F0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP2G0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP2H0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP2I0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP2J0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP2K0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP2L0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP2M0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP2N0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP2O0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP2P0 { Light ExplosionGlow }}
 
 Object ExplosionProp { Frame MXP3A0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP3B0 { Light ExplosionGlow }}
@@ -43,6 +57,13 @@ Object ExplosionProp { Frame MXP3F0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP3G0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP3H0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP3I0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP3J0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP3K0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP3L0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP3M0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP3N0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP3O0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP3P0 { Light ExplosionGlow }}
 
 Object ExplosionProp { Frame MXP4A0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP4B0 { Light ExplosionGlow }}
@@ -53,6 +74,13 @@ Object ExplosionProp { Frame MXP4F0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP4G0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP4H0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP4I0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP4J0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP4K0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP4L0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP4M0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP4N0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP4O0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP4P0 { Light ExplosionGlow }}
 
 Object ExplosionProp { Frame MXP5A0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP5B0 { Light ExplosionGlow }}
@@ -63,6 +91,13 @@ Object ExplosionProp { Frame MXP5F0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP5G0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP5H0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP5I0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP5J0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP5K0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP5L0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP5M0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP5N0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP5O0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP5P0 { Light ExplosionGlow }}
 
 Object ExplosionProp { Frame MXP6A0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP6B0 { Light ExplosionGlow }}
@@ -73,6 +108,13 @@ Object ExplosionProp { Frame MXP6F0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP6G0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP6H0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP6I0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP6J0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP6K0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP6L0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP6M0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP6N0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP6O0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP6P0 { Light ExplosionGlow }}
 
 Object ExplosionProp { Frame MXP7A0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP7B0 { Light ExplosionGlow }}
@@ -83,3 +125,10 @@ Object ExplosionProp { Frame MXP7F0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP7G0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP7H0 { Light ExplosionGlow }}
 Object ExplosionProp { Frame MXP7I0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP7J0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP7K0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP7L0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP7M0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP7N0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP7O0 { Light ExplosionGlow }}
+Object ExplosionProp { Frame MXP7P0 { Light ExplosionGlow }}

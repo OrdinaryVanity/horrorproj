@@ -87,6 +87,9 @@ class REParticle : Actor
 		// $Arg1 Frequency
 		// $Arg1Tooltip "How frequently (in tics) the spawner should create a particle"
 		// $Arg1Default 35
+		// $Arg2 Direction
+		// $Arg2Default 1
+		// $Arg2Tooltip "Which direction to spawn? (1=up, 2=left, 3=down, 4=right)"
 		+NoInteraction;
 		+NoGravity;
 	}
@@ -184,23 +187,81 @@ class REParticle : Actor
 				level.SpawnParticle(SteamParticle);*/
 
 				FSpawnParticleParams p;
-				p.color1 = -1;
-				p.texture = TexMan.CheckForTexture("STEML0");
-				p.flags = SPF_ROLL|SPF_REPLACE;
-				p.style = STYLE_Add;
-				p.size = 8;
-				p.sizestep = p.size * 0.35;
-				p.lifetime = 24;
-				p.startalpha = 0.8;
-				p.fadestep = -1;
-				p.pos = self.pos;
-				p.vel.z = -5;
-				p.accel.z = p.vel.z / (p.lifetime * -2.0);
-				p.startroll = frandom[pipesmoke](0, 360);
-				p.rollvel = frandom[pipesmoke](-10, 10);
-				p.rollacc = p.rollvel / -p.lifetime;
-				level.SpawnParticle(p);
-
+				if (args[2] == 1){ //Direction Up
+					p.color1 = -1;
+					p.texture = TexMan.CheckForTexture("STEML0");
+					p.flags = SPF_ROLL|SPF_REPLACE;
+					p.style = STYLE_Add;
+					p.size = 8;
+					p.sizestep = p.size * 0.35;
+					p.lifetime = 24;
+					p.startalpha = 0.8;
+					p.fadestep = -1;
+					p.pos = self.pos;
+					p.vel.z = 5;
+					p.accel.z = p.vel.z / (p.lifetime * 2.0);
+					p.startroll = frandom[pipesmoke](0, 360);
+					p.rollvel = frandom[pipesmoke](-10, 10);
+					p.rollacc = p.rollvel / -p.lifetime;
+					level.SpawnParticle(p);
+				}
+				else if(args[2] == 2) //Direction Left
+				{
+					p.color1 = -1;
+					p.texture = TexMan.CheckForTexture("STEML0");
+					p.flags = SPF_ROLL|SPF_REPLACE;
+					p.style = STYLE_Add;
+					p.size = 8;
+					p.sizestep = p.size * 0.35;
+					p.lifetime = 24;
+					p.startalpha = 0.8;
+					p.fadestep = -1;
+					p.pos = self.pos;
+					p.vel.x = -5;
+					p.accel.z = p.vel.x / (p.lifetime * -2.0);
+					p.startroll = frandom[pipesmoke](0, 360);
+					p.rollvel = frandom[pipesmoke](-10, 10);
+					p.rollacc = p.rollvel / -p.lifetime;
+					level.SpawnParticle(p);
+				}
+				else if(args[2] == 3) //Direction Down
+				{
+					p.color1 = -1;
+					p.texture = TexMan.CheckForTexture("STEML0");
+					p.flags = SPF_ROLL|SPF_REPLACE;
+					p.style = STYLE_Add;
+					p.size = 8;
+					p.sizestep = p.size * 0.35;
+					p.lifetime = 24;
+					p.startalpha = 0.8;
+					p.fadestep = -1;
+					p.pos = self.pos;
+					p.vel.z = -5;
+					p.accel.z = p.vel.z / (p.lifetime * -2.0);
+					p.startroll = frandom[pipesmoke](0, 360);
+					p.rollvel = frandom[pipesmoke](-10, 10);
+					p.rollacc = p.rollvel / -p.lifetime;
+					level.SpawnParticle(p);
+				}
+				else if(args[2] == 4) //Direction Right
+				{
+					p.color1 = -1;
+					p.texture = TexMan.CheckForTexture("STEML0");
+					p.flags = SPF_ROLL|SPF_REPLACE;
+					p.style = STYLE_Add;
+					p.size = 8;
+					p.sizestep = p.size * 0.35;
+					p.lifetime = 24;
+					p.startalpha = 0.8;
+					p.fadestep = -1;
+					p.pos = self.pos;
+					p.vel.y = 5;
+					p.accel.z = p.vel.y / (p.lifetime * 2.0);
+					p.startroll = frandom[pipesmoke](0, 360);
+					p.rollvel = frandom[pipesmoke](-10, 10);
+					p.rollacc = p.rollvel / -p.lifetime;
+					level.SpawnParticle(p);
+				}
 			}
 			
 			// If the spawner has no frequency, spawn only one particle and go away. Allows for spawning a single permanent Doomguy hologram for example.
